@@ -1,0 +1,150 @@
+.header {
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+
+    @media (max-width: 900px) {
+        position: absolute;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 30px;
+
+        @media (max-width: 1700px) {
+            padding: 0 20px;
+        }
+    }
+
+    &__burger {
+        cursor: pointer;
+        position: relative;
+        width: 36px;
+        height: 21px;
+
+        span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: $black;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            right: 0;
+            width: 30px;
+            height: 3px;
+            background-color: $black;
+        }
+
+        &::before {
+            top: 0;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+    }
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left .4s ease-in-out;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: $white;
+        transition: opacity .2s ease;
+    }
+
+    &.active {
+        &::before {
+            opacity: 0.75;
+        }
+    }
+
+    &__body {
+        position: relative;
+        box-sizing: border-box;
+        width: 345px;
+        height: 100%;
+        z-index: 5;
+        background-color: $orange;
+        padding: 140px 40px 50px;
+        overflow: scroll;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media (max-width: 700px) {
+            width: 250px;
+            padding: 140px 10px 50px 20px;
+        }
+    }
+
+    &__nav-item {
+        position: relative;
+
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            display: block;
+            transform: translateY(-50%);
+            top: 50%;
+            left: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            border: 1px solid $dark;
+        }
+    }
+
+    &__nav-link {
+        color: $white;
+        font-size: 24px;
+        font-weight: 700;
+        padding-left: 35px;
+        transition: all .2s ease;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $dark;
+            }
+        }
+    }
+
+    &__close {
+        cursor: pointer;
+        position: absolute;
+        top: 24px;
+        right: 25px;
+        width: 29px;
+        height: 29px;
+        background-image: url('../img/close.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+}

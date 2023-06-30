@@ -1,0 +1,121 @@
+.experience {
+    padding: 120px 0 20px;
+
+    @media (max-width: 500px) {
+        padding: 40px 0 20px;
+    }
+
+    &__title {
+        margin-bottom: 93px;
+
+        @media (max-width: 700px) {
+            margin-bottom: 64px;
+        }
+    }
+
+    &__list {
+        padding: 0 72px;
+        max-width: 970px;
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: repeat(2, minmax(100px, 410px));
+        gap: 40px;
+
+        @media (max-width: 900px) {
+            padding: 0 5px;
+        }
+
+        @media (max-width: 700px) {
+            grid-template-columns: 1fr;
+            gap: 55px;
+        }
+    }
+}
+
+.experience-item {
+    box-sizing: border-box;
+    position: relative;
+    padding-left: 42px;
+    border-left: 1px solid $dark;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -7.5px;
+        background-color: $orange;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 45px;
+        margin-top: -9px;
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 45px;
+
+            @media (max-width: 700px) {
+                margin-bottom: 13px;
+            }
+        }
+    }
+
+    &__item-header {
+        display: grid;
+        grid-template-columns: 36px 1fr;
+        gap: 0 20px;
+        margin-bottom: 9px;
+    }
+
+    &__item-icon {
+        grid-area: 1/1/3/1;
+        position: relative;
+        height: 36px;
+        border-radius: 50%;
+        background-color: $orange;
+
+        img {
+            display: block;
+            position: absolute;
+            right: -1.5px;
+            bottom: -3px;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            left: -42px;
+            background-color: $dark;
+            width: 42px;
+            height: 1px;
+        }
+    }
+
+    &__item-title {
+        grid-area: 1/2;
+    }
+
+    &__item-subtitle {
+        font-size: 12px;
+        grid-area: 2/2;
+
+        @media (max-width: 900px) {
+            display: block;
+            min-height: 30px;
+        }
+    }
+
+    &__item-text {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,129 @@
+.main {
+    box-sizing: border-box;
+    padding-top: 206px;
+    padding-bottom: 100px;
+    min-height: 800px;
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media (max-width: 1700px) {
+        min-height: 640px;
+    }
+
+    @media (max-width: 500px) {
+        background-image: url('../img/background-small.jpg');
+        background-position: right;
+    }
+
+    &__subtitle {
+        margin-bottom: 9px;
+        letter-spacing: 0;
+    }
+
+    &__title {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.25;
+        margin-bottom: 33px;
+        max-width: 530px;
+
+        @media (max-width: 700px) {
+            font-size: 26px;
+            max-width: 270px;
+        }
+
+        @media (max-width: 700px) {
+            line-height: 1.5;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 44px;
+    }
+
+    &__button-about {
+        position: relative;
+        display: block;
+        font-weight: 700;
+        transition: all .2s ease;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            transform: translateX(-50%);
+            bottom: -1px;
+            left: 50%;
+            height: 1px;
+            width: 0%;
+            background-color: $dark;
+            transition: width .2s ease;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__social {
+        position: absolute;
+        top: 383px;
+        left: 50px;
+        z-index: 1;
+        transform: translateX(-46%);
+
+        @media (max-width: 1700px) {
+            display: none;
+        }
+    }
+}
+
+.main-social {
+
+    &__block {
+        display: flex;
+        align-items: center;
+        transform: rotate(-90deg);
+    }
+
+    &__title {
+        position: relative;
+        font-size: 16px;
+        font-weight: 700;
+        padding-right: 100px;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            right: 15px;
+            width: 70px;
+            height: 2px;
+            background-color: $dark;
+        }
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    &__item {
+        line-height: 0;
+    }
+
+    &__link {
+        display: block;
+    }
+}
